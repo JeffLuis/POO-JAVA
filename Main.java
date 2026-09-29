@@ -1,18 +1,23 @@
 public class Main {
     public static void main(String[] args) {
 
-        ControleAcademico.criarTurma("POO-2026A", 3);
+        ControleDeFrota.cadastrarVeiculo("ABC1D23", "Fiorino 1.4", 45000, 10000);
+        ControleDeFrota.cadastrarVeiculo("XYZ9K88", "Sprinter 2.2", 120000, 15000);
 
-        ControleAcademico.matricular("POO-2026A", "Ana");
-        ControleAcademico.matricular("POO-2026A", "Bruno");
-        ControleAcademico.matricular("POO-2026A", "Ana"); // Rejeitado: aluno já matriculado
+        ControleDeFrota.atualizarQuilometragem("ABC1D23", 48000);
+        ControleDeFrota.registrarManutencao("ABC1D23", "10/01/2026", "PREVENTIVA", 850f);
 
-        ControleAcademico.lancarNota("POO-2026A", "Ana", 8.5);
-        ControleAcademico.lancarNota("POO-2026A", "Bruno", 5.0);
+        ControleDeFrota.atualizarQuilometragem("ABC1D23", 58500);
+        ControleDeFrota.registrarManutencao("ABC1D23", "02/03/2026", "CORRETIVA", 1200f);
 
-        ControleAcademico.matricular("POO-2026A", "Carla");
-        ControleAcademico.matricular("POO-2026A", "Diego"); // Rejeitado: turma cheia (capacidade 3)
+        ControleDeFrota.atualizarQuilometragem("XYZ9K88", 134000);
 
-        ControleAcademico.imprimirTurma("POO-2026A");
+        ControleDeFrota.imprimirRelatorio("ABC1D23");
+        System.out.println("----");
+        ControleDeFrota.imprimirRelatorio("XYZ9K88");
+
+        System.out.println("----");
+        System.out.println("ABC1D23 precisa manutencao? " + ControleDeFrota.precisaManutencao("ABC1D23"));
+        System.out.println("XYZ9K88 precisa manutencao? " + ControleDeFrota.precisaManutencao("XYZ9K88"));
     }
 }
